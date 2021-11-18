@@ -34,6 +34,7 @@ class HomeController extends Controller
     public function saveToken(Request $request)
     {
         auth()->user()->update(['device_token'=>$request->token]);
+
         return response()->json(['token saved successfully.']);
     }
 
@@ -46,7 +47,7 @@ class HomeController extends Controller
     {
         $firebaseToken = User::whereNotNull('device_token')->pluck('device_token')->all();
 
-        $SERVER_API_KEY = 'AAAAyzXj8Ts:APA91bH4tymiYFKKZsCvAAMThBRSHmZcVGWdyHbLVndmCoq5KeGSGvQL73yot32D3gLML2MtszTh1okBDdSj21z70qRWTwqyBSzjVPmSx7WYx508UvX3FToT0KZI34kmC8fQfViwGih4';
+        $SERVER_API_KEY = 'AAAAIYh90K8:APA91bGAzVpMWy49SjQ6NgIgdExak_EMkDtWcHVHVbeVLfzfCbXWXhFoLEuWkI5wPg_l6kLKBHaVblDEyWabItygfQ5to_qqKHsvedcnMGWJSstKhkSyvvKr3ZACwhTDTL0s2Yc-2CgE';
 
         $data = [
             "registration_ids" => $firebaseToken,
